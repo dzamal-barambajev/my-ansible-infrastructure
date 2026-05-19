@@ -1,0 +1,21 @@
+name: Ansible Lint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Ansible Lint
+      uses: ansible/ansible-lint-action@v6
+      with:
+        targets: |
+          site.yml
