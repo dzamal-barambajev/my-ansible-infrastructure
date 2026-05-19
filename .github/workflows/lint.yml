@@ -3,9 +3,19 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "*.yml"
+      - "monitoring_config/**"
+      - "apps_config/**"
+      - "system_config/**"
   pull_request:
     branches:
       - main
+    paths:
+      - "*.yml"
+      - "monitoring_config/**"
+      - "apps_config/**"
+      - "system_config/**"
 jobs:
   build:
     runs-on: ubuntu-latest
