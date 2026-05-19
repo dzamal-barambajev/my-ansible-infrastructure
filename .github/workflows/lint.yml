@@ -16,6 +16,4 @@ jobs:
 
     - name: Run Ansible Lint
       uses: ansible/ansible-lint@main
-      with:
-        targets: |
-          site.yml
+
