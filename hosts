@@ -1,0 +1,9 @@
+[debian_laptop]
+YOUR_SERVER_IP_HERE ansible_user=YOUR_SSH_USERNAME_HERE
+
+[school_laptop]
+YOUR_SERVER_IP_HERE ansible_user=YOUR_SSH_USERNAME_HERE ansible_ssh_private_key_file=~/.ssh/id_ed25519_wsl ansible_python_interpreter=/usr/bin/python3.12
+
+[my_vps:children]
+debian_laptop
+school_laptop

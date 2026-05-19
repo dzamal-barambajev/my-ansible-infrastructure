@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+      - /root/cert/ip:/certs:ro
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime-kuma_data:/app/data
+      - /root/cert/ip:/certs:ro
+
+volumes:
+  portainer_data:
+    external: true
+  uptime-kuma_data:
+    name: uptime-kuma_uptime-kuma
+    external: true
